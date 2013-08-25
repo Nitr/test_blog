@@ -1,0 +1,6 @@
+= simple_form_for @category, html: {class: "form-signin"} do |f|
+  = f.input :name, label: false, input_html: {class: "form-control"}
+  = f.input :parent_id, as: :select, collection: Category.all
+  = f.submit "Create", class: "btn btn-lg btn-primary btn-block"
+  - unless @category.new_record?
+    = link_to "Delete", @category, class: "btn btn-lg btn-danger btn-block", method: "DELETE"

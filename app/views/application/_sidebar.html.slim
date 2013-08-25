@@ -1,0 +1,11 @@
+- cache ['sidebar', Category.order("updated_at").last]
+  .well.sidebar-nav
+    ul.nav
+      li Categories
+      - Category.roots.order("id ASC").each do |category|
+        = tree_categories(category)
+
+- cache ['tag_cloud', Post.order("updated_at").last]
+  - tag_cloud(Post.tag_counts_on(:tags), %w(css1 css2 css3 css4)) do |tag, css_class|
+    = link_to tag.name, posts_path(tag: tag.name), class: css_class
+

@@ -22,7 +22,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+#gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -30,6 +30,47 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+gem 'devise'
+gem 'acts-as-taggable-on'
+gem "cancan"
+gem 'tire'
+gem 'anjlab-bootstrap-rails', '>= 3.0.0.0', :require => 'bootstrap-rails'
+gem 'simple_form'
+gem "slim-rails"
+gem 'inherited_resources'
+gem 'html_slicer'
+gem 'ancestry'
+gem 'redis-objects'
+gem 'redis-rails'
+gem 'friendly_id', '5.0.0.beta4'
+gem 'acts-as-taggable-on'
+gem 'pry-rails'
+gem 'pry-theme'
+
+
+group :test do
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
+  gem 'factory_girl_rails'
+
+  gem 'pry-pretty-numeric'
+  gem 'pry-syntax-hacks'
+  gem 'pry-highlight'
+  gem 'bond'
+  gem 'jist'
+  gem 'pry-git'
+  gem 'pry-developer_tools'
+  gem 'pry-remote'
+  gem 'pry-nav'
+  gem 'pry-doc'
+  gem 'pry-docmore'
+  gem "pry-stack_explorer"
 end
 
 # Use ActiveModel has_secure_password

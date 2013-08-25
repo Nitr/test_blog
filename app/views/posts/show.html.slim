@@ -1,0 +1,28 @@
+.page-header
+  h1
+    = @post.title
+  span
+    b Author: 
+    = @post.author.email
+    - if can? :manage, @post
+      .pull-right
+        span
+          | (visits: #{@post.visit_count}) 
+          = link_to "Edit", edit_post_path(@post)
+      .clearfix
+div= @post.content.html_safe
+div
+  h3 Comments:
+  - if can?(:create, Comment)
+    = render "comments/form"
+  - @post.comments.each do |comment|
+    .media
+      .media-body
+        .media-heading
+          b = comment.author.email
+          - if can?(:manage, @post) || can?(:manage, comment)
+            .pull-right
+              = link_to "Edit", [:edit, @post, comment]
+            .clearfix
+
+      div= comment.content

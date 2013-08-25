@@ -1,0 +1,12 @@
+.page-header
+  h2
+    = link_to post.title, post
+    div
+      small
+        .pull-left
+          = post.author.email
+        - if can?(:manage, post)
+          .pull-right
+            = link_to "Edit", [:edit, post]
+        .clearfix
+  div= slice_html(post, :content)
